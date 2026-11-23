@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
 <title>我的 17 歲發表會｜Life Pitch Deck</title>
+<!-- V8：產品名稱及三件年度回顧設為必填；簡報頁尾顯示產品名稱；列印保留背景色 -->
 <style>
 :root{
   --bg:#f5f3ec;--paper:#fffefa;--ink:#26352e;--muted:#69766d;--line:#e2e5dc;
@@ -163,7 +164,7 @@ body{
 
 <section class="panel active" id="step-1">
 <span class="step-tag">SLIDE 01 · PRODUCT IDENTITY</span><h2>2027 版本的你，會是甚麼樣子？</h2><p class="lead">先替新版本取名，再選出你希望呈現的關鍵字。這不是要你變成另一個人，而是決定接下來想把哪些特質帶進未來。</p><div class="soft-note"><strong>填寫提醒：</strong>每一步的必選項目都完成後，才能進入下一步；標示「選填」的文字欄可以自由留白。</div>
-<div class="field"><label for="productName">產品名稱</label><input class="text-input" id="productName" maxlength="30" placeholder="例如：小新 2.0、小店pro"><div class="hint">可以用自己的名字、綽號，或替未來的自己取一個產品名稱。</div></div>
+<div class="field"><label for="productName">產品名稱 <span class="required-mark">必填</span></label><input class="text-input" id="productName" maxlength="30" required aria-required="true" placeholder="例如：小新 2.0、小店pro"><div class="hint">可以用自己的名字、綽號，或替未來的自己取一個產品名稱。</div></div>
 <div class="field"><span class="section-title">2027 年的人設關鍵字（必選 2–3 個）</span><div class="pill-grid" id="keywordChoices"></div><div class="hint">例如：勇於嘗試、穩定前進、有界線、保持好奇。挑選你想培養或持續展現的樣子。</div><div class="inline-custom"><input class="text-input" id="customKeyword" maxlength="24" placeholder="也可以自訂一個關鍵字（選填）"></div></div>
 <div class="field"><label for="ost">這項產品的 OST 背景音樂</label><input class="text-input" id="ost" maxlength="60" placeholder="歌曲名稱／歌手，或一首代表你的歌"><div class="hint">想不到也沒關係，可以留白，或之後再補上。</div></div>
 <div class="soft-note"><strong>產品定位小提醒：</strong>關鍵字不一定是「我現在已經做得很好的事」，也可以是「我希望持續練習的方向」。</div>
@@ -172,7 +173,10 @@ body{
 
 <section class="panel" id="step-2">
 <span class="step-tag blue">SLIDE 02 · 2026 VERSION REVIEW</span><h2>上一代產品：2026 版使用報告</h2><p class="lead">回顧這一年，你經歷了什麼、完成了什麼？不只記錄成績，也把撐過的事、嘗試過的事算進里程碑。</p>
-<div class="field"><label for="oneMoment">回顧 2026：有沒有哪件事讓你印象深刻？（至少 3 件）</label><textarea id="oneMoment" maxlength="180" placeholder="例如：第一次上台很緊張，最後還是完成了；和朋友吵架、和好；比賽失利；開始打工；經歷一次告別或改變；某天很累卻努力撐過去……"></textarea><div class="hint">不一定要是成就，也可以是挫折、挑戰、人際互動、家庭生活、社團活動、旅行、興趣、日常小事，或任何你到現在還記得的片段。開心、難過、矛盾都可以。</div></div>
+<div class="field"><label for="oneMoment">回顧 2026：有沒有哪些事讓你印象深刻？（至少 3 件） <span class="required-mark">必填</span></label><textarea id="oneMoment" maxlength="360" rows="4" required aria-required="true" placeholder="請用換行列出至少 3 件，每件簡短寫一句即可。
+例如：第一次上台很緊張，最後還是完成了。
+和朋友吵架後，重新溝通並和好。
+開始打工，第一次感受到時間管理的挑戰。"></textarea><div class="hint">不一定要是成就，也可以是挫折、挑戰、人際互動、家庭生活、社團活動、旅行、興趣、日常小事，或任何你到現在還記得的片段。開心、難過、矛盾都可以。建議每件事分行書寫；也可以用句號或分號分開。</div></div>
 <div class="field"><span class="section-title">2026 年，我解鎖了哪些成就？（至少選 1 項）</span><div class="choice-grid" id="milestoneChoices"></div><div class="hint">小小的事也可以是成就，例如：第一次主動求助、完成一件拖很久的事。</div></div>
 <div class="field"><span class="section-title">今年最有感的一項「產品指數」（必選 1 項）</span><div class="pill-grid" id="metricChoices"></div><div class="hint" id="metricHint">選一個你最想展示的指數，再調整數值。這是你的主觀趣味統計，不需要真的測量。</div><div class="metric-row" style="margin-top:12px"><input type="range" id="metricRange" min="0" max="100" step="5" value="75"><div class="metric-value"><strong id="metricValue">75</strong> <span id="metricUnit">/ 100</span></div></div></div>
 <div class="field"><span class="section-title">2026 版的我，有甚麼特質或慣性？（必選 1 項）</span><div class="choice-grid" id="traitChoices"></div><div class="hint">選一個最想在 2027 年調整的特質。</div><div id="customTraitArea" class="hidden inline-custom"><input class="text-input" id="customTrait" maxlength="40" placeholder="寫下你自己的特質，例如：容易跟別人比較"><label class="section-title" for="customType">這個特質比較接近哪個方向？</label><select id="customType" class="text-input"><option value="" disabled selected>請選擇最接近的方向</option><option value="thinking">思考、擔心與判斷</option><option value="standards">標準、要求與責任</option><option value="relationship">人際互動與關係</option><option value="emotion">情緒、感受與敏感度</option><option value="action">行動、習慣與執行</option><option value="expression">溝通、表達與參與</option><option value="other">其他／不確定</option></select></div></div>
@@ -212,7 +216,7 @@ body{
 <span class="step-tag">YOUR LIFE PITCH DECK · READY TO LAUNCH</span><h2>你的 2027 版本，發表會簡報草稿完成。</h2><p class="lead">以下已整理成 6 頁簡報內容草稿。你可以逐頁複製到 Google Slides 或 PowerPoint，再加入照片、圖示、配色與排版，完成自己的產品發表會。</p>
 <div class="slide-preview" id="slidePreview"></div>
 <div class="soft-note screen-only"><strong>3 分鐘發表時間參考：</strong>第 1 頁 20 秒、第 2 頁 35 秒、第 3 頁 35 秒、第 4 頁 45 秒、第 5 頁 30 秒、第 6 頁 15 秒。每頁抓一個重點即可，不需要照著文字稿全部念完。</div>
-<div class="result-tools screen-only"><button class="btn btn-primary" id="copyAll">複製全部簡報文字</button><button class="btn btn-quiet" id="downloadDeck">下載簡報文字稿</button><button class="btn btn-quiet" id="printDeck">列印／另存 PDF</button><button class="btn btn-quiet" id="restart">清除並重新製作</button></div><div class="hint screen-only">按下「列印／另存 PDF」後會開啟列印視窗；在目的地選擇「另存為 PDF」即可存成檔案。若沒有開啟，請允許瀏覽器彈出視窗，或改用瀏覽器列印功能。</div>
+<div class="result-tools screen-only"><button class="btn btn-primary" id="copyAll">複製全部簡報文字</button><button class="btn btn-quiet" id="downloadDeck">下載簡報文字稿</button><button class="btn btn-quiet" id="printDeck">列印／另存 PDF</button><button class="btn btn-quiet" id="restart">清除並重新製作</button></div><div class="hint screen-only">按下「列印／另存 PDF」後會開啟列印視窗；在目的地選擇「另存為 PDF」即可存成檔案。若背景顏色沒有出現，請在「更多設定」勾選「背景圖形」。若沒有開啟列印視窗，請允許瀏覽器彈出視窗。</div>
 <div class="privacy-box">隱私提醒：所有回答只保存在目前這個瀏覽器，不會上傳給老師或其他網站。下載或列印後，若使用共用裝置，請按「清除並重新製作」移除本機紀錄。</div>
 </section>
 </section></div>
@@ -272,12 +276,22 @@ function syncOtherAreas(){
 function selectionCount(id){return checked(id).length}
 function showStepError(step,message,focusEl){const panel=$(`step-${step}`);const box=panel?.querySelector('.step-error');if(box){box.textContent=message;box.classList.add('show')}showToast(message);if(focusEl){const target=typeof focusEl.focus==='function'?focusEl:focusEl.querySelector('input:not([disabled]),select:not([disabled]),textarea:not([disabled]),button:not([disabled])');if(target&&typeof target.focus==='function')target.focus({preventScroll:true});if(typeof focusEl.scrollIntoView==='function')focusEl.scrollIntoView({behavior:'smooth',block:'center'})}return false}
 function clearStepError(step){const box=$(`step-${step}`)?.querySelector('.step-error');if(box){box.textContent='';box.classList.remove('show')}}
+function countLifeMomentEntries(value){
+  const text=String(value||'').trim();
+  if(!text)return 0;
+  return text
+    .replace(/\r/g,'')
+    .replace(/([。！？!?；;])/g,'$1\n')
+    .split(/\n+/)
+    .map(item=>item.replace(/^\s*(?:(?:[-*•])|(?:\d+\s*[.、．)）]))\s*/, '').trim())
+    .filter(Boolean).length;
+}
 function validateStep(step,show=true){
   save();let message='',focus=null;
-  if(step===1){if(state.keywords.length<2){message='請先選擇至少 2 個 2027 人設關鍵字。';focus=$('keywordChoices')}else if(state.keywords.length>3){message='人設關鍵字最多選擇 3 個。';focus=$('keywordChoices')}}
+  if(step===1){if(!state.productName.trim()){message='請先替 2027 版本的自己取一個產品名稱。';focus=$('productName')}else if(state.keywords.length<2){message='請先選擇至少 2 個 2027 人設關鍵字。';focus=$('keywordChoices')}else if(state.keywords.length>3){message='人設關鍵字最多選擇 3 個。';focus=$('keywordChoices')}}
   if(step===2){
-    if(!state.oneMoment.trim() && selectionCount('milestoneChoices')===0){/* life moment is optional; milestone below is required */}
-    if(selectionCount('milestoneChoices')===0){message='請至少選擇一項 2026 年的里程碑。';focus=$('milestoneChoices')}
+    if(countLifeMomentEntries(state.oneMoment)<3){message='請至少寫下 3 件 2026 年讓你印象深刻的事；建議每件分行書寫。';focus=$('oneMoment')}
+    else if(selectionCount('milestoneChoices')===0){message='請至少選擇一項 2026 年的里程碑。';focus=$('milestoneChoices')}
     else if(!state.metric){message='請選擇一項產品指數。';focus=$('metricChoices')}
     else if(!state.trait){message='請選擇一項想探索的特質。';focus=$('traitChoices')}
     else if(state.trait==='其他'&&!state.customTrait.trim()){message='請寫下你想探索的特質。';focus=$('customTrait')}
@@ -325,7 +339,7 @@ function traitStrengths(){const d=currentData();const selected=d.statements.filt
 function dataText(){const out=[];const d=currentData();d.statements.forEach((item,i)=>{const rating=state.ratings[i];if(rating==='yes')out.push(`符合我：${item[0]}`);else if(rating==='some')out.push(`有一點像：${item[0]}`);if(state.notes[i]?.trim())out.push(`我的補充：${state.notes[i].trim()}`)});return out}
 function safeList(a,empty='尚未選擇'){return a&&a.length?a.join('、'):empty}
 function withOther(a,option,detail,label){const list=[...a];const i=list.indexOf(option);if(i>=0)list[i]=detail.trim()?`${label}：${detail.trim()}`:label;return list;}
-function formatSlide(no,section,title,sub,boxes,footer){const cards=boxes.map(([heading,body])=>`<div class="slide-box"><strong>${escapeHTML(heading)}</strong><div>${escapeHTML(body||'尚未填寫')}</div></div>`).join('');return `<article class="slide" id="slide-${no}"><div class="slide-top"><span>LIFE PITCH DECK · 2027</span><span>${String(no).padStart(2,'0')} / 06</span></div><h3>${escapeHTML(title)}</h3><div class="slide-sub">${escapeHTML(sub)}</div><div class="slide-content">${cards}</div><div class="slide-bottom"><span>${escapeHTML(footer||'MY NEXT VERSION')}</span><span>${escapeHTML(currentTrait())}</span></div></article><div class="slide-actions screen-only"><button class="copy-one" data-copy-slide="${no}">複製第 ${no} 頁文字</button></div>`}
+function formatSlide(no,section,title,sub,boxes,footer){const cards=boxes.map(([heading,body])=>`<div class="slide-box"><strong>${escapeHTML(heading)}</strong><div>${escapeHTML(body||'尚未填寫')}</div></div>`).join('');return `<article class="slide" id="slide-${no}"><div class="slide-top"><span>LIFE PITCH DECK · 2027</span><span>${String(no).padStart(2,'0')} / 06</span></div><h3>${escapeHTML(title)}</h3><div class="slide-sub">${escapeHTML(sub)}</div><div class="slide-content">${cards}</div><div class="slide-bottom"><span>${escapeHTML(footer||'MY NEXT VERSION')}</span><span>${escapeHTML(state.productName.trim()||'我的產品')}</span></div></article><div class="slide-actions screen-only"><button class="copy-one" data-copy-slide="${no}">複製第 ${no} 頁文字</button></div>`}
 function slideTexts(){const strengths=traitStrengths();const chosen=dataText();const metric=state.metric||'勇氣值';const customKw=state.customKeyword.trim();const kws=[...state.keywords,...(customKw?[customKw]:[])];const name=state.productName.trim()||'2027 版的我';const goals=[];if(state.goal1.trim())goals.push({goal:state.goal1.trim(),outcome:state.outcome1,obstacle:state.obstacle1==='其他突發狀況'?`其他阻力：${state.customObstacle1.trim()}`:state.obstacle1,plan:state.plan1});if(state.goal2.trim())goals.push({goal:state.goal2.trim(),outcome:state.outcome2,obstacle:state.obstacle2==='其他突發狀況'?`其他阻力：${state.customObstacle2.trim()}`:state.obstacle2,plan:state.plan2});
 return [
 {title:name,sub:'PRODUCT IDENTITY · 2027 新品發表',boxes:[['產品定位',`2027 版的我｜${name}`],['人設關鍵字',safeList(kws,'持續探索中')],['代表 OST',state.ost.trim()||'待選一首代表我的歌'],['一句產品主張',state.tagline.trim()||'正在更新中，敬請期待。']],footer:'NEW VERSION · NOW LOADING'},
@@ -351,16 +365,21 @@ function printDeck(){
   }
   const printStyles=`
     @page{size:A4 landscape;margin:10mm}
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:#fff;color:#26352e;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    *{box-sizing:border-box;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+    html,body{margin:0;padding:0;background:#fff;color:#26352e;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
     body{padding:0}
-    .slide{display:flex;flex-direction:column;width:100%;min-height:175mm;height:auto;max-height:none;margin:0;padding:11mm 13mm;border:1px solid #d8ded5;border-radius:5mm;overflow:visible;break-after:page;page-break-after:always;background:#fffefa;box-shadow:none}
+    .slide{display:flex;flex-direction:column;width:100%;min-height:175mm;height:auto;max-height:none;margin:0;padding:11mm 13mm;border:1px solid #d8ded5;border-radius:5mm;overflow:visible;break-after:page;page-break-after:always;background-color:#e9efe7;background-image:linear-gradient(125deg,#e9efe7,#f8f4e9)!important;box-shadow:none}
+    .slide:nth-child(6n+2){background-color:#edf2f3;background-image:linear-gradient(125deg,#edf2f3,#fffefa)!important}
+    .slide:nth-child(6n+3){background-color:#f7eee8;background-image:linear-gradient(125deg,#f7eee8,#fffefa)!important}
+    .slide:nth-child(6n+4){background-color:#eef1e8;background-image:linear-gradient(125deg,#eef1e8,#fffefa)!important}
+    .slide:nth-child(6n+5){background-color:#f2eee5;background-image:linear-gradient(125deg,#f2eee5,#fffefa)!important}
+    .slide:nth-child(6n){background-color:#eaf0e8;background-image:linear-gradient(125deg,#eaf0e8,#edf2f4)!important}
     .slide:last-child{break-after:auto;page-break-after:auto}
     .slide-top{display:flex;justify-content:space-between;gap:10px;color:#758076;font:700 9pt "DM Sans","Noto Sans TC",sans-serif;letter-spacing:.12em}
     .slide h3{margin:6mm 0 3mm;color:#2e4435;font:600 24pt "Noto Serif TC","Songti TC",serif;line-height:1.3;letter-spacing:.025em}
     .slide-sub{color:#657269;font-size:11pt;line-height:1.5}
     .slide-content{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6mm;align-content:start;align-items:stretch;margin-top:5mm;flex:0 0 auto}
-    .slide-box{min-width:0;padding:5mm 5.5mm;border:1px solid rgba(218,225,215,.9);border-radius:3mm;background:rgba(255,255,255,.76);break-inside:avoid;page-break-inside:avoid}
+    .slide-box{min-width:0;padding:5mm 5.5mm;border:1px solid rgba(218,225,215,.9);border-radius:3mm;background-color:rgba(255,255,255,.82)!important;background-image:none!important;break-inside:avoid;page-break-inside:avoid;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
     .slide-box strong{display:block;margin:0 0 2mm;color:#526b57;font-size:10.5pt}
     .slide-box div{color:#3e4d42;font-size:12pt;line-height:1.48;white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal}
     .slide-bottom{display:flex;justify-content:space-between;gap:10px;margin-top:auto;padding-top:6mm;color:#839087;font-size:8.5pt}
