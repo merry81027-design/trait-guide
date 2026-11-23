@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f5f3ec">
-<meta name="description" content="回顧2026、看見優勢與支持資源，為2027設計自己的新版本。">
+<meta name="description" content="回顧2026、盤點優勢與支持資源，為2027設計自己的更新版本。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
@@ -104,6 +104,45 @@ body{
 .required-mark{display:inline-block;margin-left:7px;padding:2px 7px;border-radius:99px;background:#edf2eb;color:#55705a;font-size:11px;font-weight:800;vertical-align:2px}
 @media (prefers-reduced-motion:reduce){.choice label,.pill label,.rating label{transition:none}.choice input:checked+label,.pill input:checked+label,.rating input:checked+label{animation:none}.conditional-field,.step-error{animation:none}}
 
+
+/* V7：簡報預覽依內容自動增高，避免文字被裁切 */
+.slide{
+  aspect-ratio:auto;
+  height:auto;
+  min-height:320px;
+  max-height:none;
+  overflow:visible;
+}
+.slide-content{
+  flex:0 0 auto;
+  align-content:start;
+  align-items:stretch;
+  grid-auto-rows:min-content;
+}
+.slide-box{min-width:0;min-height:0;overflow:visible;break-inside:avoid}
+.slide-box div{white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal}
+.slide-bottom{margin-top:auto;padding-top:14px}
+@media(max-width:600px){
+  .slide{min-height:0;padding:22px 18px}
+  .slide-content{grid-template-columns:1fr;grid-auto-rows:min-content}
+}
+@media print{
+  @page{size:A4 landscape;margin:10mm}
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide-preview{display:block!important}
+  .slide{
+    width:100%;aspect-ratio:auto!important;height:auto!important;min-height:175mm;max-height:none!important;
+    margin:0 0 0;padding:11mm 13mm;overflow:visible!important;
+    page-break-after:always;break-after:page;box-shadow:none;border:1px solid #d8ded5;
+  }
+  .slide:last-of-type{page-break-after:auto;break-after:auto}
+  .slide-content{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7mm;flex:0 0 auto;align-content:start}
+  .slide-box{min-width:0;min-height:0;padding:5mm;break-inside:avoid;page-break-inside:avoid}
+  .slide-box div{font-size:12.5pt;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+  .slide-box strong{font-size:11pt}
+  .slide h3{font-size:25pt}
+}
+
 </style>
 </head>
 <body>
@@ -118,12 +157,12 @@ body{
 <button class="step-nav" data-step="4"><span class="step-no">4</span><span class="step-name">2027 新功能</span></button>
 <button class="step-nav" data-step="5"><span class="step-no">5</span><span class="step-name">資源與支持</span></button>
 <button class="step-nav" data-step="6"><span class="step-no">6</span><span class="step-name">簡報預覽</span></button>
-</nav><div class="privacy">🔒 你的回答只保存在目前使用的瀏覽器，記得下載後再上傳作業區！</div></aside>
+</nav><div class="privacy">🔒 你的回答只保存在目前使用的瀏覽器，不會上傳給老師。共用裝置請記得下載成果後清除資料。</div></aside>
 <section class="workspace">
 <div class="progress-meta"><span id="progressLabel">STEP 01 / 06</span><span id="progressPercent">17%</span></div><div class="progress"><div class="progress-fill" id="progressFill"></div></div><div class="mobile-step" id="mobileStep">第 1 步｜產品定位</div>
 
 <section class="panel active" id="step-1">
-<span class="step-tag">SLIDE 01 · PRODUCT IDENTITY</span><h2>2027 版本的你，會是甚麼樣子？</h2><p class="lead">先替新版本取名，再選出你希望呈現的關鍵字。讓你自己決定接下來想把哪些特質帶進未來。</p><div class="soft-note"><strong>填寫提醒：</strong>每一步的必選項目都完成後，才能進入下一步；標示「選填」的文字欄可以自由留白。</div>
+<span class="step-tag">SLIDE 01 · PRODUCT IDENTITY</span><h2>2027 版本的你，會是甚麼樣子？</h2><p class="lead">先替新版本取名，再選出你希望呈現的關鍵字。這不是要你變成另一個人，而是決定接下來想把哪些特質帶進未來。</p><div class="soft-note"><strong>填寫提醒：</strong>每一步的必選項目都完成後，才能進入下一步；標示「選填」的文字欄可以自由留白。</div>
 <div class="field"><label for="productName">產品名稱</label><input class="text-input" id="productName" maxlength="30" placeholder="例如：小新 2.0、小店pro"><div class="hint">可以用自己的名字、綽號，或替未來的自己取一個產品名稱。</div></div>
 <div class="field"><span class="section-title">2027 年的人設關鍵字（必選 2–3 個）</span><div class="pill-grid" id="keywordChoices"></div><div class="hint">例如：勇於嘗試、穩定前進、有界線、保持好奇。挑選你想培養或持續展現的樣子。</div><div class="inline-custom"><input class="text-input" id="customKeyword" maxlength="24" placeholder="也可以自訂一個關鍵字（選填）"></div></div>
 <div class="field"><label for="ost">這項產品的 OST 背景音樂（選填）</label><input class="text-input" id="ost" maxlength="60" placeholder="歌曲名稱／歌手，或一首代表你的歌"><div class="hint">想不到也沒關係，可以留白，或之後再補上。</div></div>
@@ -132,18 +171,18 @@ body{
 </section>
 
 <section class="panel" id="step-2">
-<span class="step-tag blue">SLIDE 02 · 2026 VERSION REVIEW</span><h2>上一代產品：2026 版使用報告</h2><p class="lead">回顧這一年，你經歷了什麼、完成了什麼？除了成績單以外，那些你撐過的事、嘗試過的小事也都很重要。</p>
-<div class="field"><label for="oneMoment">回顧 2026：有沒有哪些事讓你印象深刻？（至少 3 件）</label><textarea id="oneMoment" maxlength="180" placeholder="例如：第一次上台很緊張，最後還是完成了；和朋友吵架、和好；比賽失利；開始打工；經歷一次告別或改變；某天很累卻努力撐過去……"></textarea><div class="hint">不一定要是成就，也可以是挫折、挑戰、人際互動、家庭生活、社團活動、旅行、興趣、日常小事，或任何你到現在還記得的片段。開心、難過、矛盾都可以。</div></div>
+<span class="step-tag blue">SLIDE 02 · 2026 VERSION REVIEW</span><h2>上一代產品：2026 版使用報告</h2><p class="lead">回顧這一年，你經歷了什麼、完成了什麼？不只記錄成績，也把撐過的事、嘗試過的事算進里程碑。</p>
+<div class="field"><label for="oneMoment">回顧 2026：有沒有哪件事讓你印象深刻？（寫一兩句即可）</label><textarea id="oneMoment" maxlength="180" placeholder="例如：第一次上台很緊張，最後還是完成了；和朋友吵架、和好；比賽失利；開始打工；經歷一次告別或改變；某天很累卻努力撐過去……"></textarea><div class="hint">不一定要是成就，也可以是挫折、挑戰、人際互動、家庭生活、社團活動、旅行、興趣、日常小事，或任何你到現在還記得的片段。開心、難過、矛盾都可以。</div></div>
 <div class="field"><span class="section-title">2026 年，我解鎖了哪些成就？（至少選 1 項）</span><div class="choice-grid" id="milestoneChoices"></div><div class="hint">小小的事也可以是成就，例如：第一次主動求助、完成一件拖很久的事。</div></div>
 <div class="field"><span class="section-title">今年最有感的一項「產品指數」（必選 1 項）</span><div class="pill-grid" id="metricChoices"></div><div class="hint" id="metricHint">選一個你最想展示的指數，再調整數值。這是你的主觀趣味統計，不需要真的測量。</div><div class="metric-row" style="margin-top:12px"><input type="range" id="metricRange" min="0" max="100" step="5" value="75"><div class="metric-value"><strong id="metricValue">75</strong> <span id="metricUnit">/ 100</span></div></div></div>
-<div class="field"><span class="section-title">2026 版的我，有甚麼特質或慣性？（必選 1 項）</span><div class="choice-grid" id="traitChoices"></div><div class="hint">選一個最想在 2027 年調整的特質。</div><div id="customTraitArea" class="hidden inline-custom"><input class="text-input" id="customTrait" maxlength="40" placeholder="寫下你自己的特質，例如：容易跟別人比較"><label class="section-title" for="customType">這個特質比較接近哪個方向？</label><select id="customType" class="text-input"><option value="" disabled selected>請選擇最接近的方向</option><option value="thinking">思考、擔心與判斷</option><option value="standards">標準、要求與責任</option><option value="relationship">人際互動與關係</option><option value="emotion">情緒、感受與敏感度</option><option value="action">行動、習慣與執行</option><option value="expression">溝通、表達與參與</option><option value="other">其他／不確定</option></select></div></div>
-<div class="field"><span class="section-title">換個角度想想：哪些描述比較像你？</span><div class="statements" id="traitStatements"></div><div class="hint">選「有一點像」也可以；不太像的描述不會被算成你的特質。</div></div>
+<div class="field"><span class="section-title">2026 版的我，有甚麼特質或慣性？（必選 1 項）</span><div class="choice-grid" id="traitChoices"></div><div class="hint">選一個最想重新理解、或最想在 2027 年調整的特質。</div><div id="customTraitArea" class="hidden inline-custom"><input class="text-input" id="customTrait" maxlength="40" placeholder="寫下你自己的特質，例如：容易跟別人比較"><label class="section-title" for="customType">這個特質比較接近哪個方向？</label><select id="customType" class="text-input"><option value="" disabled selected>請選擇最接近的方向</option><option value="thinking">思考、擔心與判斷</option><option value="standards">標準、要求與責任</option><option value="relationship">人際互動與關係</option><option value="emotion">情緒、感受與敏感度</option><option value="action">行動、習慣與執行</option><option value="expression">溝通、表達與參與</option><option value="other">其他／不確定</option></select></div></div>
+<div class="field"><span class="section-title">哪些描述接近你的經驗？（每題必選 1 個）</span><div class="statements" id="traitStatements"></div><div class="hint">選「有一點像」也可以；不太像的描述不會被算成你的特質。</div></div>
 
 <div class="step-error" role="alert"></div><div class="step-actions"><button class="btn btn-quiet prev" data-prev="1">← 上一步</button><button class="btn btn-primary next" data-next="3">下一步：停用舊功能 →</button></div>
 </section>
 
 <section class="panel" id="step-3">
-<span class="step-tag peach">SLIDE 03 · DEPRECATION NOTICE</span><h2>2027 年，哪些舊功能準備停用？</h2><p class="lead">不用覺得一定要改掉某個特質，而是辨認「什麼時候用得剛好」與「什麼時候用過頭」。選出你想減少的舊思維或舊習慣，也選擇想留下的能力。</p>
+<span class="step-tag peach">SLIDE 03 · DEPRECATION NOTICE</span><h2>2027 年，哪些舊功能準備停用？</h2><p class="lead">不用覺得一定要把特質刪掉，而是辨認「什麼時候用得剛好」與「什麼時候用過頭」。選出你想減少的舊思維或舊習慣，也選擇想留下的能力。</p>
 <div class="soft-note"><strong id="traitReframeTitle">特質可以有不同面向。</strong><span id="traitReframeText">先看看這個特質可能帶來的能力，再決定想保留與調整的部分。</span></div>
 <div class="field"><span class="section-title">我想保留／持續使用的功能（至少選 1 項）</span><div class="choice-grid" id="keepChoices"></div></div>
 <div class="field"><span class="section-title">2027 年，我想修正哪些BUG？（選 1–3 個）</span><div class="choice-grid" id="retireChoices"></div><div class="hint">不必要求自己立刻完全做到；這些是你想開始減少的模式。</div></div>
@@ -152,20 +191,20 @@ body{
 </section>
 
 <section class="panel" id="step-4">
-<span class="step-tag">SLIDE 04 · 2027 ROADMAP</span><h2>新功能預告：2027 年的兩項更新</h2><p class="lead">選出兩個你想實際做到的改變。接著預想可能遇到的阻力，替自己設定行動計畫(σ′▽‵)′▽‵)σ </p>
+<span class="step-tag">SLIDE 04 · 2027 ROADMAP</span><h2>新功能預告：2027 年的兩項更新</h2><p class="lead">選出兩個你想實際做到的改變。接著預想可能遇到的阻力，替自己設定 If…Then… 行動計畫。</p>
 <div class="goal-card"><div class="goal-head"><span class="goal-badge">01</span><strong>更新目標一</strong></div><label class="section-title" for="goal1">我想做到什麼？（必填）</label><input class="text-input" id="goal1" maxlength="70" placeholder="例如：每週至少運動兩次，每次 30 分鐘"><div class="woop-grid"><div class="woop-box"><label for="outcome1">達成後期待的改變（Outcome）</label><select id="outcome1" class="text-input"><option value="" disabled selected>請選擇一項</option><option value="更有自信與成就感">更有自信與成就感</option><option value="讓生活更穩定、更有餘裕">讓生活更穩定、更有餘裕</option><option value="提升能力或累積經驗">提升能力或累積經驗</option><option value="讓人際關係更自在">讓人際關係更自在</option><option value="更能照顧自己的身心狀態">更能照顧自己的身心狀態</option><option value="更接近自己重視的方向">更接近自己重視的方向</option></select></div><div class="woop-box"><label for="obstacle1">可能遇到的阻力（Obstacle）</label><select id="obstacle1" class="text-input"><option value="" disabled selected>請選擇一項</option><option value="時間被其他事情擠壓">時間被其他事情擠壓</option><option value="容易分心或拖延">容易分心或拖延</option><option value="擔心做不好／害怕失敗">擔心做不好／害怕失敗</option><option value="情緒或體力不足">情緒或體力不足</option><option value="缺少陪伴或支持">缺少陪伴或支持</option><option value="不知道如何開始">不知道如何開始</option><option value="其他突發狀況">其他突發狀況</option></select><div class="conditional-field hidden" id="obstacleOther1Area"><label for="customObstacle1">請描述可能遇到的其他阻力（必填）</label><input class="text-input" id="customObstacle1" maxlength="90" placeholder="簡單描述可能卡住你的情況"></div></div><div class="woop-box"><label for="plan1">If 遇到阻力，Then 我會……</label><select id="plan1" class="text-input"><option value="" disabled selected>請選擇一項</option><option value="先做 5 分鐘，讓自己開始">先做 5 分鐘，讓自己開始</option><option value="拆成更小的步驟，一次完成一點">拆成更小的步驟，一次完成一點</option><option value="調整時間或方法，不直接放棄">調整時間或方法，不直接放棄</option><option value="找一個人陪我或提醒我">找一個人陪我或提醒我</option><option value="先休息、照顧狀態，再重新安排">先休息、照顧狀態，再重新安排</option><option value="回到目標，確認這件事對我的意義">回到目標，確認這件事對我的意義</option></select></div></div></div>
 <div class="goal-card"><div class="goal-head"><span class="goal-badge">02</span><strong>更新目標二</strong></div><label class="section-title" for="goal2">我還想做到什麼？（必填）</label><input class="text-input" id="goal2" maxlength="70" placeholder="例如：遇到不懂的地方，一週內主動請教一次"><div class="woop-grid"><div class="woop-box"><label for="outcome2">達成後期待的改變（Outcome）</label><select id="outcome2" class="text-input"><option value="" disabled selected>請選擇一項</option><option value="更有自信與成就感">更有自信與成就感</option><option value="讓生活更穩定、更有餘裕">讓生活更穩定、更有餘裕</option><option value="提升能力或累積經驗">提升能力或累積經驗</option><option value="讓人際關係更自在">讓人際關係更自在</option><option value="更能照顧自己的身心狀態">更能照顧自己的身心狀態</option><option value="更接近自己重視的方向">更接近自己重視的方向</option></select></div><div class="woop-box"><label for="obstacle2">可能遇到的阻力（Obstacle）</label><select id="obstacle2" class="text-input"><option value="" disabled selected>請選擇一項</option><option value="時間被其他事情擠壓">時間被其他事情擠壓</option><option value="容易分心或拖延">容易分心或拖延</option><option value="擔心做不好／害怕失敗">擔心做不好／害怕失敗</option><option value="情緒或體力不足">情緒或體力不足</option><option value="缺少陪伴或支持">缺少陪伴或支持</option><option value="不知道如何開始">不知道如何開始</option><option value="其他突發狀況">其他突發狀況</option></select><div class="conditional-field hidden" id="obstacleOther2Area"><label for="customObstacle2">請描述可能遇到的其他阻力（必填）</label><input class="text-input" id="customObstacle2" maxlength="90" placeholder="簡單描述可能卡住你的情況"></div></div><div class="woop-box"><label for="plan2">If 遇到阻力，Then 我會……</label><select id="plan2" class="text-input"><option value="" disabled selected>請選擇一項</option><option value="先做 5 分鐘，讓自己開始">先做 5 分鐘，讓自己開始</option><option value="拆成更小的步驟，一次完成一點">拆成更小的步驟，一次完成一點</option><option value="調整時間或方法，不直接放棄">調整時間或方法，不直接放棄</option><option value="找一個人陪我或提醒我">找一個人陪我或提醒我</option><option value="先休息、照顧狀態，再重新安排">先休息、照顧狀態，再重新安排</option><option value="回到目標，確認這件事對我的意義">回到目標，確認這件事對我的意義</option></select></div></div></div>
-<div class="soft-note"><strong>WOOP 提醒：</strong>Wish（願望）→ Outcome（期待的結果）→ Obstacle（可能阻礙）→ Plan（If…Then…計畫）。預想可能的阻力不是唱衰自己，而是先做好心理準備。</div>
+<div class="soft-note"><strong>WOOP 提醒：</strong>Wish（願望）→ Outcome（期待的結果）→ Obstacle（可能阻礙）→ Plan（If…Then…計畫）。先預想阻力，不是唱衰自己，而是預先準備可以採取的行動。</div>
 <div class="step-error" role="alert"></div><div class="step-actions"><button class="btn btn-quiet prev" data-prev="3">← 上一步</button><button class="btn btn-primary next" data-next="5">下一步：盤點資源 →</button></div>
 </section>
 
 <section class="panel" id="step-5">
-<span class="step-tag blue">SLIDE 05–06 · RESOURCE & LAUNCH</span><h2>我現有的軟硬體，以及未來的上市宣言</h2><p class="lead">完成一項更新，不只靠意志力。看見你已經擁有的能力，也找出可以支持你的人。最後，留下一句想對未來自己說的話。</p>
-<div class="field"><span class="section-title">我已經擁有、可以帶進 2027 的內建功能（選 2–4 項）</span><div class="choice-grid" id="innerResources"></div><div class="conditional-field hidden" id="innerOtherArea"><label for="customInnerResource">請寫下你想保留的其他能力（必填）</label><input class="text-input" id="customInnerResource" maxlength="90" placeholder="例如：遇到混亂時能讓自己冷靜下來"></div><div class="hint">包含能力、特質、經驗或你曾經用過的方法；可以選擇第三階段辨認出的優勢。</div></div>
+<span class="step-tag blue">SLIDE 05–06 · RESOURCE & LAUNCH</span><h2>我的資源庫，以及上市宣言</h2><p class="lead">完成一項更新，不只靠意志力。盤點你已經擁有的能力，也找出可以支持你的人。最後，留下一句想對未來自己說的話。</p>
+<div class="field"><span class="section-title">我已經擁有、可以帶進 2027 的初始功能（選 2–4 項）</span><div class="choice-grid" id="innerResources"></div><div class="conditional-field hidden" id="innerOtherArea"><label for="customInnerResource">請寫下你想保留的其他能力（必填）</label><input class="text-input" id="customInnerResource" maxlength="90" placeholder="例如：遇到混亂時能讓自己冷靜下來"></div><div class="hint">包含能力、特質、經驗或你曾經用過的方法；可以選擇第三階段辨認出的優勢。</div></div>
 <div class="field"><span class="section-title">當我需要支持時，可以找誰？（至少選 1 項）</span><div class="choice-grid" id="outerResources"></div><div class="conditional-field hidden" id="outerOtherArea"><label for="customOuterPerson">請寫下你想尋求支持的人或對象（必填）</label><input class="text-input" id="customOuterPerson" maxlength="90" placeholder="例如：表姊、某位學長姊、社團夥伴"></div></div>
 <div class="field"><span class="section-title">我希望對方怎麼支持我？（至少選 1 項）</span><div class="pill-grid" id="supportWays"></div></div>
-<div class="field"><label for="tagline">2027 上市宣言（給2027的自己一句話）(*´꒳`*)b </label><input class="text-input" id="tagline" maxlength="80" placeholder="例如：不用一次到位，但每次都比昨天多一點選擇。"></div>
-<div class="soft-note"><strong>資源盤點：</strong>每個特質都是你的內建功能，身邊的人與環境也都是你的外部資源。</div>
+<div class="field"><label for="tagline">2027 上市宣言（給自己的一句話）</label><input class="text-input" id="tagline" maxlength="80" placeholder="例如：不用一次到位，但每次都比昨天多一點選擇。"></div>
+<div class="soft-note"><strong>資源盤點：</strong>你不需要獨自完成所有更新。已經練習過的能力是內部資源，願意支持你的人與環境則是外部資源。</div>
 <div class="step-error" role="alert"></div><div class="step-actions"><button class="btn btn-quiet prev" data-prev="4">← 上一步</button><button class="btn btn-primary" id="buildDeck">產生我的 6 頁發表會 →</button></div>
 </section>
 
@@ -173,36 +212,36 @@ body{
 <span class="step-tag">YOUR LIFE PITCH DECK · READY TO LAUNCH</span><h2>你的 2027 版本，發表會簡報草稿完成。</h2><p class="lead">以下已整理成 6 頁簡報內容草稿。你可以逐頁複製到 Google Slides 或 PowerPoint，再加入照片、圖示、配色與排版，完成自己的產品發表會。</p>
 <div class="slide-preview" id="slidePreview"></div>
 <div class="soft-note screen-only"><strong>3 分鐘發表時間參考：</strong>第 1 頁 20 秒、第 2 頁 35 秒、第 3 頁 35 秒、第 4 頁 45 秒、第 5 頁 30 秒、第 6 頁 15 秒。每頁抓一個重點即可，不需要照著文字稿全部念完。</div>
-<div class="result-tools screen-only"><button class="btn btn-primary" id="copyAll">複製全部簡報文字</button><button class="btn btn-quiet" id="downloadDeck">下載簡報文字稿</button><button class="btn btn-quiet" id="printDeck">列印／另存 PDF</button><button class="btn btn-quiet" id="restart">清除並重新製作</button></div>
+<div class="result-tools screen-only"><button class="btn btn-primary" id="copyAll">複製全部簡報文字</button><button class="btn btn-quiet" id="downloadDeck">下載簡報文字稿</button><button class="btn btn-quiet" id="printDeck">列印／另存 PDF</button><button class="btn btn-quiet" id="restart">清除並重新製作</button></div><div class="hint screen-only">按下「列印／另存 PDF」後會開啟列印視窗；在目的地選擇「另存為 PDF」即可存成檔案。若沒有開啟，請允許瀏覽器彈出視窗，或改用瀏覽器列印功能。</div>
 <div class="privacy-box">隱私提醒：所有回答只保存在目前這個瀏覽器，不會上傳給老師或其他網站。下載或列印後，若使用共用裝置，請按「清除並重新製作」移除本機紀錄。</div>
 </section>
 </section></div>
-<div class="footer">LIFE PITCH DECK · 不用成為最完美的產品，而是更了解自己，設計自己的未來。</div>
+<div class="footer">LIFE PITCH DECK · 不是要成為完美的產品，而是更了解自己，並為下一個版本做出選擇。</div>
 </main><div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 'use strict';
-const KEY='life-pitch-deck-v1';
+const KEY='life-pitch-deck-v1'; // 保留既有本機資料鍵，更新版本不會清除學生已填答案
 const $=id=>document.getElementById(id);
 const traitDB={
-'想太多／容易擔心':{type:'thinking',intro:'留意你在事情開始前、進行中或結束後，通常會怎麼思考。',statements:[['事情還沒開始，我就會先想到可能出現的問題。','預先規劃、風險意識'],['我會想像不同結果，試著找出比較好的做法。','多角度思考、分析能力'],['做完一件事後，我常反覆回想哪裡還能更好。','自我檢視、重視品質'],['我會注意別人的反應，想知道對方是否自在。','觀察力、關係敏感度']],keep:['事前規劃','注意細節','多角度思考','在意他人感受'],retire:['事情還沒發生，就先預演最壞結果','反覆確認，遲遲不開始或不敢決定','把別人的反應都解讀成對自己的否定','要求自己一定要找到最完美的答案'],warnings:['花很多時間思考，卻沒有新的資訊','因為擔心而延後行動或決定','影響睡眠、休息或當下的專注','一直想著別人的看法，忽略自己的需求'],strengths:['預先規劃','風險意識','多角度思考','觀察力']},
-'完美主義／要求很高':{type:'standards',intro:'留意你設定標準、完成任務與面對成果時的反應。',statements:[['我會希望成果符合自己設定的標準。','品質意識、責任感'],['我容易注意到細節或可以改進的地方。','細心、觀察力'],['即使完成了，我還是會想再修改到更好。','持續精進、投入度'],['看到自己沒達到期待時，我會很難接受。','重視承諾、對自己有期待']],keep:['品質意識','細心','責任感','持續精進'],retire:['成果不夠完美就不願意交出去','把一次失誤當成整體能力不好','不斷修改，壓縮休息與其他任務時間','用過高標準要求自己或他人'],warnings:['花太多時間修飾細節','因怕做不好而遲遲不開始','完成後仍只看見不足','休息時也覺得有罪惡感'],strengths:['細心','品質意識','責任感','持續精進']},
-'慢熟／不擅長主動':{type:'relationship',intro:'留意你建立關係、觀察環境與表達自己的方式。',statements:[['進入新環境時，我通常會先觀察一段時間。','觀察力、謹慎判斷'],['熟悉之後，我能和別人建立較穩定的關係。','深度連結、重視關係'],['我比較習慣一對一或小團體的互動。','傾聽、專注互動'],['要主動開啟話題或認識新朋友，對我比較不容易。','重視安全感、審慎建立信任']],keep:['觀察力','傾聽','深度連結','重視信任'],retire:['因為怕尷尬而完全不表達需求','等別人主動，錯過認識新朋友的機會','把慢熟解讀成自己不擅長人際','只待在熟悉圈子，不嘗試新的互動'],warnings:['想認識別人卻一直等待','有想法但不敢提出','因為不熟悉而拒絕所有新機會','把安靜等同於沒有能力'],strengths:['觀察力','傾聽','深度連結','審慎建立信任']},
-'固執／不容易妥協':{type:'standards',intro:'留意你面對不同意見、原則與改變時的反應。',statements:[['我對自己認為重要的事情有明確立場。','原則感、價值辨識'],['遇到困難時，我通常會繼續嘗試。','毅力、持續投入'],['我會希望事情依照自己認為合理的方式進行。','組織能力、目標感'],['即使別人提出不同方法，我也不容易改變想法。','立場堅定、重視一致性']],keep:['原則感','毅力','目標感','持續投入'],retire:['只接受自己的方法，不聽其他可能性','把改變想法當成認輸','為了堅持而忽略實際結果','在團隊中不願協調或分工'],warnings:['討論變成爭輸贏','明知方法無效仍不願調整','因意見不同而影響關係','忽略新資訊或他人的專業'],strengths:['原則感','毅力','目標感','持續投入']},
-'敏感／很在意別人眼光':{type:'emotion',intro:'留意你對氣氛、他人反應與自身感受的察覺。',statements:[['我很容易注意到別人的情緒或語氣變化。','情緒觀察、敏銳度'],['我會在意自己的言行是否影響別人。','同理心、關係覺察'],['別人的一句話可能讓我想很久。','重視互動、感受細膩'],['我有時會因為怕被否定，而不敢表達自己。','重視連結、希望被理解']],keep:['情緒觀察','同理心','關係覺察','感受細膩'],retire:['把別人的情緒都當成自己的責任','因為怕被討厭而不表達需求','反覆猜測別人真正的意思','只用別人的評價決定自己的價值'],warnings:['一整天反覆想別人的一句話','不敢拒絕或表達不同意見','過度承擔別人的情緒','忽略自己的感受與界線'],strengths:['情緒觀察','同理心','關係覺察','細膩感受']},
-'急性子／缺乏耐心':{type:'action',intro:'留意你面對等待、進度與需要立即行動的事情時，會怎麼反應。',statements:[['我喜歡事情有進度，不想一直停在原地。','行動力、效率意識'],['看到問題時，我會很快想採取行動。','反應迅速、解決問題'],['我不太喜歡等待或反覆討論。','重視效率、目標導向'],['事情進展不如預期時，我容易感到煩躁。','投入度高、期待明確']],keep:['行動力','效率意識','反應迅速','目標導向'],retire:['為了求快而忽略確認與溝通','還沒聽完就急著回應','因為進度慢而對自己或別人不耐煩','把所有事情都當成需要立即完成'],warnings:['急著完成而增加錯誤','打斷別人或忽略不同意見','進度不如預期就失去耐心','很難停下來休息'],strengths:['行動力','效率意識','反應迅速','目標導向']},
-'拖延／難以開始':{type:'action',intro:'留意你面對任務、開始行動與安排時間時的狀況。',statements:[['任務越重要，我有時越難開始。','重視成果、在意表現'],['我通常需要明確的期限或步驟才容易行動。','適合結構化安排、知道如何運用外部提醒'],['有興趣的事情，我可以投入很長時間。','興趣驅動、專注投入'],['我可能會先做比較容易或有趣的事情。','彈性調度、尋找啟動動機']],keep:['興趣驅動','專注投入','彈性調度','重視成果'],retire:['一直等到有動力才開始','把任務想得太大，沒有拆成小步驟','用責備自己代替實際安排','忽略休息，最後才集中趕工'],warnings:['重要任務一直沒有開始','期限逼近才匆忙完成','因為拖延而影響睡眠或品質','想到任務就先感到壓力'],strengths:['興趣驅動','專注投入','彈性調度','尋找啟動動機']},
-'害怕失敗／不敢嘗試':{type:'thinking',intro:'留意你面對不確定、挑戰與可能犯錯時的反應。',statements:[['我會先評估自己是否有能力完成。','風險評估、審慎準備'],['我希望準備得更充分再開始。','準備能力、重視品質'],['我會注意可能出錯的地方。','預防風險、細節觀察'],['即使有興趣，也可能因為怕失敗而放棄嘗試。','重視成果、對自己有期待']],keep:['審慎準備','風險評估','重視品質','細節觀察'],retire:['把不熟悉等同於自己做不到','因為怕失敗而完全不嘗試','只看結果，不肯定嘗試的過程','把一次挫折當成能力的定論'],warnings:['一直準備卻沒有開始','拒絕所有有挑戰的機會','過度在意他人評價','因害怕錯誤而不敢提問'],strengths:['審慎準備','風險評估','重視品質','細節觀察']},
-'太熱心／不容易拒絕':{type:'relationship',intro:'留意你回應他人需求、分配時間與表達界線的方式。',statements:[['別人需要幫忙時，我通常會想辦法協助。','助人意願、同理心'],['我會注意團體裡有沒有人被忽略。','觀察力、團隊意識'],['我願意多做一些，讓事情順利完成。','責任感、主動性'],['即使自己很忙，也不容易拒絕別人的請求。','重視關係、願意付出']],keep:['助人意願','同理心','責任感','團隊意識'],retire:['不評估自己的狀態就答應所有請求','把拒絕別人等同於不夠好','承擔超出自己能力的責任','忽略自己的需求與時間'],warnings:['自己的事情一直被延後','答應後感到委屈或疲憊','害怕拒絕造成關係變差','開始對求助的人感到不耐煩'],strengths:['助人意願','同理心','責任感','團隊意識']},
-'愛講話／容易搶話':{type:'expression',intro:'留意你分享想法、參與討論與傾聽他人的方式。',statements:[['我常有想法，也喜歡和別人分享。','表達力、想法活躍'],['在團體中，我通常願意先開口。','主動性、帶動氣氛'],['我能很快接住話題，讓討論繼續。','反應力、互動能力'],['有時太急著表達，會不小心打斷別人。','投入度高、表達意願強']],keep:['表達力','主動性','帶動氣氛','反應力'],retire:['還沒聽完就急著回應','把每個空檔都填滿，不留討論空間','只顧著分享，忘記確認別人是否想聽','把安靜誤解為沒有參與'],warnings:['別人說話常被打斷','討論中較少聽到其他人的想法','說完才發現沒有理解問題','需要很多回饋才能安心'],strengths:['表達力','主動性','帶動氣氛','反應力']}
+'想太多／容易擔心':{type:'thinking',intro:'留意你在事情開始前、進行中或結束後，通常會怎麼思考。',statements:[['事情還沒開始，我就會先想到可能出現的問題。','預先規劃'],['我會想像不同結果，試著找出比較好的做法。','多角度思考'],['做完一件事後，我常反覆回想哪裡還能更好。','自我檢視'],['我會注意別人的反應，想知道對方是否自在。','觀察力']],keep:['預先規劃','多角度思考','自我檢視','觀察力'],retire:['事情還沒發生，就先預演最壞結果','反覆確認，遲遲不開始或不敢決定','把別人的反應都解讀成對自己的否定','要求自己一定要找到最完美的答案'],warnings:['花很多時間思考，卻沒有新的資訊','因為擔心而延後行動或決定','影響睡眠、休息或當下的專注','一直想著別人的看法，忽略自己的需求'],strengths:['預先規劃','風險意識','多角度思考','觀察力']},
+'完美主義／要求很高':{type:'standards',intro:'留意你設定標準、完成任務與面對成果時的反應。',statements:[['我會希望成果符合自己設定的標準。','品質意識'],['我容易注意到細節或可以改進的地方。','細心'],['即使完成了，我還是會想再修改到更好。','持續精進'],['看到自己沒達到期待時，我會很難接受。','重視成果']],keep:['品質意識','細心','持續精進','重視成果'],retire:['成果不夠完美就不願意交出去','把一次失誤當成整體能力不好','不斷修改，壓縮休息與其他任務時間','用過高標準要求自己或他人'],warnings:['花太多時間修飾細節','因怕做不好而遲遲不開始','完成後仍只看見不足','休息時也覺得有罪惡感'],strengths:['細心','品質意識','責任感','持續精進']},
+'慢熟／不擅長主動':{type:'relationship',intro:'留意你建立關係、觀察環境與表達自己的方式。',statements:[['進入新環境時，我通常會先觀察一段時間。','觀察力'],['熟悉之後，我能和別人建立較穩定的關係。','深度連結'],['我比較習慣一對一或小團體的互動。','傾聽'],['要主動開啟話題或認識新朋友，對我比較不容易。','審慎建立信任']],keep:['觀察力','深度連結','傾聽','審慎建立信任'],retire:['因為怕尷尬而完全不表達需求','等別人主動，錯過認識新朋友的機會','把慢熟解讀成自己不擅長人際','只待在熟悉圈子，不嘗試新的互動'],warnings:['想認識別人卻一直等待','有想法但不敢提出','因為不熟悉而拒絕所有新機會','把安靜等同於沒有能力'],strengths:['觀察力','傾聽','深度連結','審慎建立信任']},
+'固執／不容易妥協':{type:'standards',intro:'留意你面對不同意見、原則與改變時的反應。',statements:[['我對自己認為重要的事情有明確立場。','原則感'],['遇到困難時，我通常會繼續嘗試。','毅力'],['我會希望事情依照自己認為合理的方式進行。','目標感'],['即使別人提出不同方法，我也不容易改變想法。','立場堅定']],keep:['原則感','毅力','目標感','立場堅定'],retire:['只接受自己的方法，不聽其他可能性','把改變想法當成認輸','為了堅持而忽略實際結果','在團隊中不願協調或分工'],warnings:['討論變成爭輸贏','明知方法無效仍不願調整','因意見不同而影響關係','忽略新資訊或他人的專業'],strengths:['原則感','毅力','目標感','持續投入']},
+'敏感／很在意別人眼光':{type:'emotion',intro:'留意你對氣氛、他人反應與自身感受的察覺。',statements:[['我很容易注意到別人的情緒或語氣變化。','情緒觀察'],['我會在意自己的言行是否影響別人。','同理心'],['別人的一句話可能讓我想很久。','感受細膩'],['我有時會因為怕被否定，而不敢表達自己。','重視連結']],keep:['情緒觀察','同理心','感受細膩','重視連結'],retire:['把別人的情緒都當成自己的責任','因為怕被討厭而不表達需求','反覆猜測別人真正的意思','只用別人的評價決定自己的價值'],warnings:['一整天反覆想別人的一句話','不敢拒絕或表達不同意見','過度承擔別人的情緒','忽略自己的感受與界線'],strengths:['情緒觀察','同理心','關係覺察','細膩感受']},
+'急性子／缺乏耐心':{type:'action',intro:'留意你面對等待、進度與需要立即行動的事情時，會怎麼反應。',statements:[['我喜歡事情有進度，不想一直停在原地。','效率意識'],['看到問題時，我會很快想採取行動。','反應迅速'],['我不太喜歡等待或反覆討論。','目標導向'],['事情進展不如預期時，我容易感到煩躁。','投入度']],keep:['效率意識','反應迅速','目標導向','投入度'],retire:['為了求快而忽略確認與溝通','還沒聽完就急著回應','因為進度慢而對自己或別人不耐煩','把所有事情都當成需要立即完成'],warnings:['急著完成而增加錯誤','打斷別人或忽略不同意見','進度不如預期就失去耐心','很難停下來休息'],strengths:['行動力','效率意識','反應迅速','目標導向']},
+'拖延／難以開始':{type:'action',intro:'留意你面對任務、開始行動與安排時間時的狀況。',statements:[['任務越重要，我有時越難開始。','重視成果'],['我通常需要明確的期限或步驟才容易行動。','善用結構與提醒'],['有興趣的事情，我可以投入很長時間。','專注投入'],['我可能會先做比較容易或有趣的事情。','尋找啟動方式']],keep:['重視成果','善用結構與提醒','專注投入','尋找啟動方式'],retire:['一直等到有動力才開始','把任務想得太大，沒有拆成小步驟','用責備自己代替實際安排','忽略休息，最後才集中趕工'],warnings:['重要任務一直沒有開始','期限逼近才匆忙完成','因為拖延而影響睡眠或品質','想到任務就先感到壓力'],strengths:['興趣驅動','專注投入','彈性調度','尋找啟動動機']},
+'害怕失敗／不敢嘗試':{type:'thinking',intro:'留意你面對不確定、挑戰與可能犯錯時的反應。',statements:[['我會先評估自己是否有能力完成。','風險評估'],['我希望準備得更充分再開始。','審慎準備'],['我會注意可能出錯的地方。','細節觀察'],['即使有興趣，也可能因為怕失敗而放棄嘗試。','重視成果']],keep:['風險評估','審慎準備','細節觀察','重視成果'],retire:['把不熟悉等同於自己做不到','因為怕失敗而完全不嘗試','只看結果，不肯定嘗試的過程','把一次挫折當成能力的定論'],warnings:['一直準備卻沒有開始','拒絕所有有挑戰的機會','過度在意他人評價','因害怕錯誤而不敢提問'],strengths:['審慎準備','風險評估','重視品質','細節觀察']},
+'太熱心／不容易拒絕':{type:'relationship',intro:'留意你回應他人需求、分配時間與表達界線的方式。',statements:[['別人需要幫忙時，我通常會想辦法協助。','助人意願'],['我會注意團體裡有沒有人被忽略。','團隊觀察'],['我願意多做一些，讓事情順利完成。','主動承擔'],['即使自己很忙，也不容易拒絕別人的請求。','重視關係']],keep:['助人意願','團隊觀察','主動承擔','重視關係'],retire:['不評估自己的狀態就答應所有請求','把拒絕別人等同於不夠好','承擔超出自己能力的責任','忽略自己的需求與時間'],warnings:['自己的事情一直被延後','答應後感到委屈或疲憊','害怕拒絕造成關係變差','開始對求助的人感到不耐煩'],strengths:['助人意願','同理心','責任感','團隊意識']},
+'愛講話／容易搶話':{type:'expression',intro:'留意你分享想法、參與討論與傾聽他人的方式。',statements:[['我常有想法，也喜歡和別人分享。','想法活躍'],['在團體中，我通常願意先開口。','帶動氣氛'],['我能很快接住話題，讓討論繼續。','互動反應'],['有時太急著表達，會不小心打斷別人。','表達熱情']],keep:['想法活躍','帶動氣氛','互動反應','表達熱情'],retire:['還沒聽完就急著回應','把每個空檔都填滿，不留討論空間','只顧著分享，忘記確認別人是否想聽','把安靜誤解為沒有參與'],warnings:['別人說話常被打斷','討論中較少聽到其他人的想法','說完才發現沒有理解問題','需要很多回饋才能安心'],strengths:['表達力','主動性','帶動氣氛','反應力']}
 };
 const customDB={
-thinking:{statements:[['我會先想像可能發生的狀況，再決定怎麼做。','預先思考、風險意識'],['我習慣分析原因或比較不同選項。','分析能力、整理資訊'],['我會因為擔心結果而反覆思考。','重視結果、審慎評估'],['我需要多一點時間和資訊才安心。','謹慎、重視準備']],keep:['預先思考','分析能力','風險意識','謹慎'],retire:['反覆思考卻沒有採取下一步','只注意風險，忽略可能的機會','等到完全確定才願意開始'],warnings:['思考時間遠超過行動時間','不斷尋找更多資訊卻無法決定','擔心影響睡眠或生活'],strengths:['分析能力','預先思考','風險意識']},
-standards:{statements:[['我對自己或事情有一定的標準。','重視品質、責任感'],['我會注意細節與可以改進的部分。','觀察力、細心'],['我願意投入時間把事情做好。','投入度、持續精進'],['有時標準太高，反而讓自己很有壓力。','自我要求、重視成果']],keep:['重視品質','細心','責任感','持續精進'],retire:['因為不夠完美而遲遲不交付','用高標準否定整體成果','忽略時間與身心負荷'],warnings:['反覆修改而延誤進度','很難肯定自己的成果','無法允許自己犯錯'],strengths:['細心','責任感','品質意識']},
-relationship:{statements:[['我會留意別人的感受與團體氣氛。','人際觀察、同理心'],['我很重視關係中的信任與互相理解。','關係經營、傾聽'],['我會考慮自己的行為對別人的影響。','合作意識、換位思考'],['有時我會因為顧慮關係而不表達自己。','重視連結、願意體諒']],keep:['同理心','傾聽','合作意識','關係經營'],retire:['為維持關係而忽略自己的界線','只猜測對方想法，不直接確認','把所有關係問題都歸咎於自己'],warnings:['不敢表達不同意見','過度承擔別人的情緒','在人際互動後感到耗竭'],strengths:['同理心','傾聽','合作意識']},
-emotion:{statements:[['我能察覺自己或別人的情緒變化。','情緒覺察、敏銳度'],['我對環境或互動氣氛有細緻感受。','觀察力、感受細膩'],['我會花時間理解自己為什麼有這些感受。','自我覺察、反思能力'],['有時情緒或外界評價會影響我很久。','重視感受、在意連結']],keep:['情緒覺察','觀察力','自我覺察','感受細膩'],retire:['把情緒當成必須立刻消除的問題','忽略自己的感受以配合別人','讓一時的情緒決定所有行動'],warnings:['情緒影響日常作息','一直壓抑感受而沒有出口','過度接收外界評價'],strengths:['情緒覺察','自我覺察','觀察力']},
-action:{statements:[['我做事有自己習慣的節奏或方式。','自我管理、方法調整'],['有明確步驟時，我比較容易開始。','結構化、執行規劃'],['我會想辦法讓任務完成。','問題解決、行動力'],['有時習慣或拖延會影響原本計畫。','需要清楚目標、重視完成']],keep:['自我管理','方法調整','問題解決','行動力'],retire:['只靠臨時動力，不做事前安排','遇到阻礙就完全中斷','用責備取代調整策略'],warnings:['重要任務沒有進度','常在期限前匆忙完成','生活節奏受到影響'],strengths:['自我管理','問題解決','行動力']},
-expression:{statements:[['我喜歡表達想法或參與討論。','表達能力、參與感'],['我容易帶動團體氣氛或開啟話題。','主動性、互動能力'],['我習慣用自己的方式讓別人理解。','溝通能力、創意'],['有時表達太快，沒有留意他人是否跟上。','反應力、熱情']],keep:['表達能力','主動性','互動能力','創意'],retire:['只顧表達而沒有確認對方的想法','害怕冷場而不留空間','把不同意見當成否定'],warnings:['溝通變成單向輸出','討論時忽略他人聲音','因急於表達而產生誤會'],strengths:['表達能力','主動性','創意']},
-other:{statements:[['這個特質在某些情況下，可能讓我更有準備或更有方法。','可能的個人方法'],['這個特質和我在意的事情有關。','價值感、重視的事'],['它有時幫助我完成事情，也有時帶來困擾。','情境辨識、彈性'],['我還在理解它對自己的影響。','自我探索、願意理解自己']],keep:['願意探索自己的方式','從經驗中整理方法','辨認情境的能力'],retire:['急著替自己貼上固定標籤','只看到特質帶來的困擾','認為自己一定要用同一種方式面對所有情況'],warnings:['這個特質開始影響原本想做的事','自己或身邊的人感到壓力','不確定怎麼調整但一直勉強自己'],strengths:['自我覺察','經驗整理','彈性調整']}
+thinking:{statements:[['我會先想像可能發生的狀況，再決定怎麼做。','預先思考'],['我習慣分析原因或比較不同選項。','分析能力'],['我會因為擔心結果而反覆思考。','審慎評估'],['我需要多一點時間和資訊才安心。','重視資訊']],keep:['預先思考','分析能力','審慎評估','重視資訊'],retire:['反覆思考卻沒有採取下一步','只注意風險，忽略可能的機會','等到完全確定才願意開始'],warnings:['思考時間遠超過行動時間','不斷尋找更多資訊卻無法決定','擔心影響睡眠或生活'],strengths:['分析能力','預先思考','風險意識']},
+standards:{statements:[['我對自己或事情有一定的標準。','重視品質'],['我會注意細節與可以改進的部分。','細節觀察'],['我願意投入時間把事情做好。','持續投入'],['有時標準太高，反而讓自己很有壓力。','自我要求']],keep:['重視品質','細節觀察','持續投入','自我要求'],retire:['因為不夠完美而遲遲不交付','用高標準否定整體成果','忽略時間與身心負荷'],warnings:['反覆修改而延誤進度','很難肯定自己的成果','無法允許自己犯錯'],strengths:['細心','責任感','品質意識']},
+relationship:{statements:[['我會留意別人的感受與團體氣氛。','人際觀察'],['我很重視關係中的信任與互相理解。','重視信任'],['我會考慮自己的行為對別人的影響。','換位思考'],['有時我會因為顧慮關係而不表達自己。','關係敏感度']],keep:['人際觀察','重視信任','換位思考','關係敏感度'],retire:['為維持關係而忽略自己的界線','只猜測對方想法，不直接確認','把所有關係問題都歸咎於自己'],warnings:['不敢表達不同意見','過度承擔別人的情緒','在人際互動後感到耗竭'],strengths:['同理心','傾聽','合作意識']},
+emotion:{statements:[['我能察覺自己或別人的情緒變化。','情緒覺察'],['我對環境或互動氣氛有細緻感受。','感受細膩'],['我會花時間理解自己為什麼有這些感受。','自我理解'],['有時情緒或外界評價會影響我很久。','重視感受']],keep:['情緒覺察','感受細膩','自我理解','重視感受'],retire:['把情緒當成必須立刻消除的問題','忽略自己的感受以配合別人','讓一時的情緒決定所有行動'],warnings:['情緒影響日常作息','一直壓抑感受而沒有出口','過度接收外界評價'],strengths:['情緒覺察','自我覺察','觀察力']},
+action:{statements:[['我做事有自己習慣的節奏或方式。','習慣管理'],['有明確步驟時，我比較容易開始。','善用結構'],['我會想辦法讓任務完成。','執行能力'],['有時習慣或拖延會影響原本計畫。','完成導向']],keep:['習慣管理','善用結構','執行能力','完成導向'],retire:['只靠臨時動力，不做事前安排','遇到阻礙就完全中斷','用責備取代調整策略'],warnings:['重要任務沒有進度','常在期限前匆忙完成','生活節奏受到影響'],strengths:['自我管理','問題解決','行動力']},
+expression:{statements:[['我喜歡表達想法或參與討論。','表達能力'],['我容易帶動團體氣氛或開啟話題。','帶動氣氛'],['我習慣用自己的方式讓別人理解。','溝通創意'],['有時表達太快，沒有留意他人是否跟上。','熱情投入']],keep:['表達能力','帶動氣氛','溝通創意','熱情投入'],retire:['只顧表達而沒有確認對方的想法','害怕冷場而不留空間','把不同意見當成否定'],warnings:['溝通變成單向輸出','討論時忽略他人聲音','因急於表達而產生誤會'],strengths:['表達能力','主動性','創意']},
+other:{statements:[['這個特質在某些情況下，可能讓我更有準備或更有方法。','探索能力'],['這個特質和我在意的事情有關。','價值覺察'],['它有時幫助我完成事情，也有時帶來困擾。','情境辨識'],['我還在理解它對自己的影響。','自我理解']],keep:['探索能力','價值覺察','情境辨識','自我理解'],retire:['急著替自己貼上固定標籤','只看到特質帶來的困擾','認為自己一定要用同一種方式面對所有情況'],warnings:['這個特質開始影響原本想做的事','自己或身邊的人感到壓力','不確定怎麼調整但一直勉強自己'],strengths:['自我覺察','經驗整理','彈性調整']}
 };
 const milestones=['完成一件原本不太敢做的事','撐過一段不容易的日子','學會一項新技能或新方法','在團隊中完成自己的任務','主動向別人求助或表達需求','照顧／支持了重要的人','嘗試新的活動或挑戰','更了解自己的需要與界線','雖然還在摸索，但沒有放棄'];
 const keywords=['勇於嘗試','穩定前進','保持好奇','更有界線','相信自己','願意求助','照顧自己','持續精進','自在表達','接納不完美','有彈性','踏實行動'];
@@ -299,10 +338,47 @@ return [
 function renderDeck(){const slides=slideTexts();$('slidePreview').innerHTML=slides.map((s,i)=>formatSlide(i+1,['PRODUCT IDENTITY','2026 VERSION REVIEW','DEPRECATION NOTICE','2027 ROADMAP','RESOURCE MAP','LAUNCH STATEMENT'][i],s.title,s.sub,s.boxes,s.footer)).join('');}
 function deckText(){return slideTexts().map((s,i)=>`SLIDE ${i+1}｜${s.title}\n${s.sub}\n`+s.boxes.map(([a,b])=>`${a}\n${b}`).join('\n\n')+`\n\n${s.footer}`).join('\n\n'+'─'.repeat(28)+'\n\n')}
 function downloadText(){save();const blob=new Blob(['\ufeff'+deckText()],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='我的17歲產品發表會_簡報文字稿.txt';document.body.append(a);a.click();a.remove();URL.revokeObjectURL(url);showToast('簡報文字稿已下載')}
+
+function printDeck(){
+  save();
+  if(!$('slidePreview').querySelector('.slide')) renderDeck();
+  const slideMarkup=[...$('slidePreview').querySelectorAll('.slide')].map(slide=>slide.outerHTML).join('');
+  const printWindow=window.open('','_blank');
+  if(!printWindow){
+    showToast('列印視窗遭到封鎖，改用目前頁面列印；若仍無法開啟，請允許此網站使用彈出視窗。');
+    try{window.focus();window.print()}catch(error){showToast('無法啟動列印，請使用瀏覽器選單中的「列印」。')}
+    return;
+  }
+  const printStyles=`
+    @page{size:A4 landscape;margin:10mm}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:#fff;color:#26352e;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body{padding:0}
+    .slide{display:flex;flex-direction:column;width:100%;min-height:175mm;height:auto;max-height:none;margin:0;padding:11mm 13mm;border:1px solid #d8ded5;border-radius:5mm;overflow:visible;break-after:page;page-break-after:always;background:#fffefa;box-shadow:none}
+    .slide:last-child{break-after:auto;page-break-after:auto}
+    .slide-top{display:flex;justify-content:space-between;gap:10px;color:#758076;font:700 9pt "DM Sans","Noto Sans TC",sans-serif;letter-spacing:.12em}
+    .slide h3{margin:6mm 0 3mm;color:#2e4435;font:600 24pt "Noto Serif TC","Songti TC",serif;line-height:1.3;letter-spacing:.025em}
+    .slide-sub{color:#657269;font-size:11pt;line-height:1.5}
+    .slide-content{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6mm;align-content:start;align-items:stretch;margin-top:5mm;flex:0 0 auto}
+    .slide-box{min-width:0;padding:5mm 5.5mm;border:1px solid rgba(218,225,215,.9);border-radius:3mm;background:rgba(255,255,255,.76);break-inside:avoid;page-break-inside:avoid}
+    .slide-box strong{display:block;margin:0 0 2mm;color:#526b57;font-size:10.5pt}
+    .slide-box div{color:#3e4d42;font-size:12pt;line-height:1.48;white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal}
+    .slide-bottom{display:flex;justify-content:space-between;gap:10px;margin-top:auto;padding-top:6mm;color:#839087;font-size:8.5pt}
+    @media screen{body{padding:12mm;background:#f5f3ec}.slide{margin:0 auto 10mm;max-width:277mm}}
+  `;
+  printWindow.document.open();
+  printWindow.document.write(`<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>我的 17 歲產品發表會｜列印／另存 PDF</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet"><style>${printStyles}</style></head><body>${slideMarkup}<script>window.addEventListener('afterprint',()=>{window.close()},{once:true});<\/script></body></html>`);
+  printWindow.document.close();
+  const launchPrint=()=>{try{printWindow.focus();printWindow.print()}catch(error){try{printWindow.close()}catch(_){}showToast('列印視窗無法啟動，請允許彈出視窗後重試。')}};
+  const fontsReady=printWindow.document.fonts&&printWindow.document.fonts.ready;
+  if(fontsReady&&typeof fontsReady.then==='function')fontsReady.then(()=>setTimeout(launchPrint,180)).catch(()=>setTimeout(launchPrint,350));
+  else setTimeout(launchPrint,350);
+}
+
 async function copyText(text){try{await navigator.clipboard.writeText(text);showToast('已複製，可以貼到簡報中')}catch(e){const t=document.createElement('textarea');t.value=text;document.body.append(t);t.select();document.execCommand('copy');t.remove();showToast('已複製，可以貼到簡報中')}}
 function reset(){if(!confirm('確定要清除這台瀏覽器儲存的回答，重新製作嗎？請先下載需要保留的內容。'))return;localStorage.removeItem(KEY);location.reload()}
 function bind(){document.querySelectorAll('.next').forEach(b=>b.addEventListener('click',()=>{const target=Number(b.dataset.next);if(!validateStep(target-1,true))return;showStep(target)}));document.querySelectorAll('.prev').forEach(b=>b.addEventListener('click',()=>showStep(Number(b.dataset.prev))));document.querySelectorAll('.step-nav').forEach(b=>b.addEventListener('click',()=>{const target=Number(b.dataset.step);if(!b.disabled)showStep(target)}));$('metricRange').addEventListener('input',()=>{$('metricValue').textContent=state.metric==='休眠時間'?Number($('metricRange').value).toFixed(1).replace(/\.0$/,''):$('metricRange').value;if(state.metric==='休眠時間')state.metricSleepValue=Number($('metricRange').value);else state.metricValue=Number($('metricRange').value);save()});$('metricChoices').addEventListener('change',()=>{state.metric=checked('metricChoices')[0]||'';updateMetricControl();save();refreshNavigation()});
-['keywordChoices','milestoneChoices','traitChoices','traitStatements','keepChoices','retireChoices','warningChoices','innerResources','outerResources','supportWays'].forEach(id=>$(id).addEventListener('change',()=>{sync();syncOtherAreas();refreshNavigation()}));['productName','customKeyword','ost','oneMoment','customTrait','customInnerResource','customOuterPerson','customObstacle1','customObstacle2','goal1','goal2','tagline'].forEach(id=>$(id).addEventListener('input',()=>{save();syncOtherAreas();refreshNavigation()}));['customType','outcome1','outcome2','obstacle1','plan1','obstacle2','plan2'].forEach(id=>$(id).addEventListener('change',()=>{save();syncOtherAreas();refreshNavigation()}));$('customType').addEventListener('change',()=>{state.ratings={};state.notes={};state.keeps=[];state.retires=[];state.warnings=[];renderTraitStatements();renderKeepRetire();save();refreshNavigation()});$('buildDeck').addEventListener('click',()=>{for(let s=1;s<=5;s++){if(!validateStep(s,true)){showStep(s);return;}}showStep(6)});$('slidePreview').addEventListener('click',e=>{const b=e.target.closest('[data-copy-slide]');if(!b)return;const n=Number(b.dataset.copySlide);const s=slideTexts()[n-1];copyText(`SLIDE ${n}｜${s.title}\n${s.sub}\n`+s.boxes.map(([a,v])=>`${a}\n${v}`).join('\n\n'))});$('copyAll').addEventListener('click',()=>copyText(deckText()));$('downloadDeck').addEventListener('click',downloadText);$('printDeck').addEventListener('click',()=>window.print());$('restart').addEventListener('click',reset);}
+['keywordChoices','milestoneChoices','traitChoices','traitStatements','keepChoices','retireChoices','warningChoices','innerResources','outerResources','supportWays'].forEach(id=>$(id).addEventListener('change',()=>{sync();syncOtherAreas();refreshNavigation()}));['productName','customKeyword','ost','oneMoment','customTrait','customInnerResource','customOuterPerson','customObstacle1','customObstacle2','goal1','goal2','tagline'].forEach(id=>$(id).addEventListener('input',()=>{save();syncOtherAreas();refreshNavigation()}));['customType','outcome1','outcome2','obstacle1','plan1','obstacle2','plan2'].forEach(id=>$(id).addEventListener('change',()=>{save();syncOtherAreas();refreshNavigation()}));$('customType').addEventListener('change',()=>{state.ratings={};state.notes={};state.keeps=[];state.retires=[];state.warnings=[];renderTraitStatements();renderKeepRetire();save();refreshNavigation()});$('buildDeck').addEventListener('click',()=>{for(let s=1;s<=5;s++){if(!validateStep(s,true)){showStep(s);return;}}showStep(6)});$('slidePreview').addEventListener('click',e=>{const b=e.target.closest('[data-copy-slide]');if(!b)return;const n=Number(b.dataset.copySlide);const s=slideTexts()[n-1];copyText(`SLIDE ${n}｜${s.title}\n${s.sub}\n`+s.boxes.map(([a,v])=>`${a}\n${v}`).join('\n\n'))});$('copyAll').addEventListener('click',()=>copyText(deckText()));$('downloadDeck').addEventListener('click',downloadText);$('printDeck').addEventListener('click',printDeck);$('restart').addEventListener('click',reset);}
 function init(){load();fillFields();renderAllChoices();renderTraitChoices();renderTraitStatements();renderKeepRetire();refreshRestored();bind();syncOtherAreas();const allowed=highestUnlockedStep();const requested=Number(state.step)||1;showStep(Math.min(requested,allowed),false);refreshNavigation()}
 init();
 </script>
