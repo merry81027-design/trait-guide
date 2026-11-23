@@ -133,17 +133,17 @@ body{
 
 <section class="panel" id="step-2">
 <span class="step-tag blue">SLIDE 02 · 2026 VERSION REVIEW</span><h2>上一代產品：2026 版使用報告</h2><p class="lead">回顧這一年，你經歷了什麼、完成了什麼？除了成績單以外，那些你撐過的事、嘗試過的小事也都很重要。</p>
-<div class="field"><label for="oneMoment">回顧 2026：有沒有哪件事讓你印象深刻？（寫一兩句即可）</label><textarea id="oneMoment" maxlength="180" placeholder="例如：第一次上台很緊張，最後還是完成了；和朋友吵架、和好；比賽失利；開始打工；經歷一次告別或改變；某天很累卻努力撐過去……"></textarea><div class="hint">不一定要是成就，也可以是挫折、挑戰、人際互動、家庭生活、社團活動、旅行、興趣、日常小事，或任何你到現在還記得的片段。開心、難過、矛盾都可以。</div></div>
+<div class="field"><label for="oneMoment">回顧 2026：有沒有哪些事讓你印象深刻？（至少 3 件）</label><textarea id="oneMoment" maxlength="180" placeholder="例如：第一次上台很緊張，最後還是完成了；和朋友吵架、和好；比賽失利；開始打工；經歷一次告別或改變；某天很累卻努力撐過去……"></textarea><div class="hint">不一定要是成就，也可以是挫折、挑戰、人際互動、家庭生活、社團活動、旅行、興趣、日常小事，或任何你到現在還記得的片段。開心、難過、矛盾都可以。</div></div>
 <div class="field"><span class="section-title">2026 年，我解鎖了哪些成就？（至少選 1 項）</span><div class="choice-grid" id="milestoneChoices"></div><div class="hint">小小的事也可以是成就，例如：第一次主動求助、完成一件拖很久的事。</div></div>
 <div class="field"><span class="section-title">今年最有感的一項「產品指數」（必選 1 項）</span><div class="pill-grid" id="metricChoices"></div><div class="hint" id="metricHint">選一個你最想展示的指數，再調整數值。這是你的主觀趣味統計，不需要真的測量。</div><div class="metric-row" style="margin-top:12px"><input type="range" id="metricRange" min="0" max="100" step="5" value="75"><div class="metric-value"><strong id="metricValue">75</strong> <span id="metricUnit">/ 100</span></div></div></div>
 <div class="field"><span class="section-title">2026 版的我，有甚麼特質或慣性？（必選 1 項）</span><div class="choice-grid" id="traitChoices"></div><div class="hint">選一個最想在 2027 年調整的特質。</div><div id="customTraitArea" class="hidden inline-custom"><input class="text-input" id="customTrait" maxlength="40" placeholder="寫下你自己的特質，例如：容易跟別人比較"><label class="section-title" for="customType">這個特質比較接近哪個方向？</label><select id="customType" class="text-input"><option value="" disabled selected>請選擇最接近的方向</option><option value="thinking">思考、擔心與判斷</option><option value="standards">標準、要求與責任</option><option value="relationship">人際互動與關係</option><option value="emotion">情緒、感受與敏感度</option><option value="action">行動、習慣與執行</option><option value="expression">溝通、表達與參與</option><option value="other">其他／不確定</option></select></div></div>
-<div class="field"><span class="section-title">換個角度想想：哪些描述比較像你？（每題必選 1 個）</span><div class="statements" id="traitStatements"></div><div class="hint">選「有一點像」也可以；不太像的描述不會被算成你的特質。</div></div>
+<div class="field"><span class="section-title">換個角度想想：哪些描述比較像你？</span><div class="statements" id="traitStatements"></div><div class="hint">選「有一點像」也可以；不太像的描述不會被算成你的特質。</div></div>
 
 <div class="step-error" role="alert"></div><div class="step-actions"><button class="btn btn-quiet prev" data-prev="1">← 上一步</button><button class="btn btn-primary next" data-next="3">下一步：停用舊功能 →</button></div>
 </section>
 
 <section class="panel" id="step-3">
-<span class="step-tag peach">SLIDE 03 · DEPRECATION NOTICE</span><h2>2027 年，哪些舊功能準備停用？</h2><p class="lead">不用覺得一定要把特質刪掉，而是辨認「什麼時候用得剛好」與「什麼時候用過頭」。選出你想減少的舊思維或舊習慣，也選擇想留下的能力。</p>
+<span class="step-tag peach">SLIDE 03 · DEPRECATION NOTICE</span><h2>2027 年，哪些舊功能準備停用？</h2><p class="lead">不用覺得一定要改掉某個特質，而是辨認「什麼時候用得剛好」與「什麼時候用過頭」。選出你想減少的舊思維或舊習慣，也選擇想留下的能力。</p>
 <div class="soft-note"><strong id="traitReframeTitle">特質可以有不同面向。</strong><span id="traitReframeText">先看看這個特質可能帶來的能力，再決定想保留與調整的部分。</span></div>
 <div class="field"><span class="section-title">我想保留／持續使用的功能（至少選 1 項）</span><div class="choice-grid" id="keepChoices"></div></div>
 <div class="field"><span class="section-title">2027 年，我想修正哪些BUG？（選 1–3 個）</span><div class="choice-grid" id="retireChoices"></div><div class="hint">不必要求自己立刻完全做到；這些是你想開始減少的模式。</div></div>
@@ -152,7 +152,7 @@ body{
 </section>
 
 <section class="panel" id="step-4">
-<span class="step-tag">SLIDE 04 · 2027 ROADMAP</span><h2>新功能預告：2027 年的兩項更新</h2><p class="lead">選出兩個你想實際做到的改變。接著預想可能遇到的阻力，替自己設定行動計畫！</p>
+<span class="step-tag">SLIDE 04 · 2027 ROADMAP</span><h2>新功能預告：2027 年的兩項更新</h2><p class="lead">選出兩個你想實際做到的改變。接著預想可能遇到的阻力，替自己設定行動計畫(σ′▽‵)′▽‵)σ </p>
 <div class="goal-card"><div class="goal-head"><span class="goal-badge">01</span><strong>更新目標一</strong></div><label class="section-title" for="goal1">我想做到什麼？（必填）</label><input class="text-input" id="goal1" maxlength="70" placeholder="例如：每週至少運動兩次，每次 30 分鐘"><div class="woop-grid"><div class="woop-box"><label for="outcome1">達成後期待的改變（Outcome）</label><select id="outcome1" class="text-input"><option value="" disabled selected>請選擇一項</option><option value="更有自信與成就感">更有自信與成就感</option><option value="讓生活更穩定、更有餘裕">讓生活更穩定、更有餘裕</option><option value="提升能力或累積經驗">提升能力或累積經驗</option><option value="讓人際關係更自在">讓人際關係更自在</option><option value="更能照顧自己的身心狀態">更能照顧自己的身心狀態</option><option value="更接近自己重視的方向">更接近自己重視的方向</option></select></div><div class="woop-box"><label for="obstacle1">可能遇到的阻力（Obstacle）</label><select id="obstacle1" class="text-input"><option value="" disabled selected>請選擇一項</option><option value="時間被其他事情擠壓">時間被其他事情擠壓</option><option value="容易分心或拖延">容易分心或拖延</option><option value="擔心做不好／害怕失敗">擔心做不好／害怕失敗</option><option value="情緒或體力不足">情緒或體力不足</option><option value="缺少陪伴或支持">缺少陪伴或支持</option><option value="不知道如何開始">不知道如何開始</option><option value="其他突發狀況">其他突發狀況</option></select><div class="conditional-field hidden" id="obstacleOther1Area"><label for="customObstacle1">請描述可能遇到的其他阻力（必填）</label><input class="text-input" id="customObstacle1" maxlength="90" placeholder="簡單描述可能卡住你的情況"></div></div><div class="woop-box"><label for="plan1">If 遇到阻力，Then 我會……</label><select id="plan1" class="text-input"><option value="" disabled selected>請選擇一項</option><option value="先做 5 分鐘，讓自己開始">先做 5 分鐘，讓自己開始</option><option value="拆成更小的步驟，一次完成一點">拆成更小的步驟，一次完成一點</option><option value="調整時間或方法，不直接放棄">調整時間或方法，不直接放棄</option><option value="找一個人陪我或提醒我">找一個人陪我或提醒我</option><option value="先休息、照顧狀態，再重新安排">先休息、照顧狀態，再重新安排</option><option value="回到目標，確認這件事對我的意義">回到目標，確認這件事對我的意義</option></select></div></div></div>
 <div class="goal-card"><div class="goal-head"><span class="goal-badge">02</span><strong>更新目標二</strong></div><label class="section-title" for="goal2">我還想做到什麼？（必填）</label><input class="text-input" id="goal2" maxlength="70" placeholder="例如：遇到不懂的地方，一週內主動請教一次"><div class="woop-grid"><div class="woop-box"><label for="outcome2">達成後期待的改變（Outcome）</label><select id="outcome2" class="text-input"><option value="" disabled selected>請選擇一項</option><option value="更有自信與成就感">更有自信與成就感</option><option value="讓生活更穩定、更有餘裕">讓生活更穩定、更有餘裕</option><option value="提升能力或累積經驗">提升能力或累積經驗</option><option value="讓人際關係更自在">讓人際關係更自在</option><option value="更能照顧自己的身心狀態">更能照顧自己的身心狀態</option><option value="更接近自己重視的方向">更接近自己重視的方向</option></select></div><div class="woop-box"><label for="obstacle2">可能遇到的阻力（Obstacle）</label><select id="obstacle2" class="text-input"><option value="" disabled selected>請選擇一項</option><option value="時間被其他事情擠壓">時間被其他事情擠壓</option><option value="容易分心或拖延">容易分心或拖延</option><option value="擔心做不好／害怕失敗">擔心做不好／害怕失敗</option><option value="情緒或體力不足">情緒或體力不足</option><option value="缺少陪伴或支持">缺少陪伴或支持</option><option value="不知道如何開始">不知道如何開始</option><option value="其他突發狀況">其他突發狀況</option></select><div class="conditional-field hidden" id="obstacleOther2Area"><label for="customObstacle2">請描述可能遇到的其他阻力（必填）</label><input class="text-input" id="customObstacle2" maxlength="90" placeholder="簡單描述可能卡住你的情況"></div></div><div class="woop-box"><label for="plan2">If 遇到阻力，Then 我會……</label><select id="plan2" class="text-input"><option value="" disabled selected>請選擇一項</option><option value="先做 5 分鐘，讓自己開始">先做 5 分鐘，讓自己開始</option><option value="拆成更小的步驟，一次完成一點">拆成更小的步驟，一次完成一點</option><option value="調整時間或方法，不直接放棄">調整時間或方法，不直接放棄</option><option value="找一個人陪我或提醒我">找一個人陪我或提醒我</option><option value="先休息、照顧狀態，再重新安排">先休息、照顧狀態，再重新安排</option><option value="回到目標，確認這件事對我的意義">回到目標，確認這件事對我的意義</option></select></div></div></div>
 <div class="soft-note"><strong>WOOP 提醒：</strong>Wish（願望）→ Outcome（期待的結果）→ Obstacle（可能阻礙）→ Plan（If…Then…計畫）。預想可能的阻力不是唱衰自己，而是先做好心理準備。</div>
@@ -161,11 +161,11 @@ body{
 
 <section class="panel" id="step-5">
 <span class="step-tag blue">SLIDE 05–06 · RESOURCE & LAUNCH</span><h2>我現有的軟硬體，以及未來的上市宣言</h2><p class="lead">完成一項更新，不只靠意志力。看見你已經擁有的能力，也找出可以支持你的人。最後，留下一句想對未來自己說的話。</p>
-<div class="field"><span class="section-title">我已經擁有、可以帶進 2027 的初始功能（選 2–4 項）</span><div class="choice-grid" id="innerResources"></div><div class="conditional-field hidden" id="innerOtherArea"><label for="customInnerResource">請寫下你想保留的其他能力（必填）</label><input class="text-input" id="customInnerResource" maxlength="90" placeholder="例如：遇到混亂時能讓自己冷靜下來"></div><div class="hint">包含能力、特質、經驗或你曾經用過的方法；可以選擇第三階段辨認出的優勢。</div></div>
+<div class="field"><span class="section-title">我已經擁有、可以帶進 2027 的內建功能（選 2–4 項）</span><div class="choice-grid" id="innerResources"></div><div class="conditional-field hidden" id="innerOtherArea"><label for="customInnerResource">請寫下你想保留的其他能力（必填）</label><input class="text-input" id="customInnerResource" maxlength="90" placeholder="例如：遇到混亂時能讓自己冷靜下來"></div><div class="hint">包含能力、特質、經驗或你曾經用過的方法；可以選擇第三階段辨認出的優勢。</div></div>
 <div class="field"><span class="section-title">當我需要支持時，可以找誰？（至少選 1 項）</span><div class="choice-grid" id="outerResources"></div><div class="conditional-field hidden" id="outerOtherArea"><label for="customOuterPerson">請寫下你想尋求支持的人或對象（必填）</label><input class="text-input" id="customOuterPerson" maxlength="90" placeholder="例如：表姊、某位學長姊、社團夥伴"></div></div>
 <div class="field"><span class="section-title">我希望對方怎麼支持我？（至少選 1 項）</span><div class="pill-grid" id="supportWays"></div></div>
-<div class="field"><label for="tagline">2027 上市宣言（給2027的自己一句話）</label><input class="text-input" id="tagline" maxlength="80" placeholder="例如：不用一次到位，但每次都比昨天多一點選擇。"></div>
-<div class="soft-note"><strong>資源盤點：</strong>你不需要獨自完成所有更新。已經練習過的能力是內部資源，願意支持你的人與環境則是外部資源。</div>
+<div class="field"><label for="tagline">2027 上市宣言（給2027的自己一句話）(*´꒳`*)b </label><input class="text-input" id="tagline" maxlength="80" placeholder="例如：不用一次到位，但每次都比昨天多一點選擇。"></div>
+<div class="soft-note"><strong>資源盤點：</strong>每個特質都是你的內建功能，身邊的人與環境也都是你的外部資源。</div>
 <div class="step-error" role="alert"></div><div class="step-actions"><button class="btn btn-quiet prev" data-prev="4">← 上一步</button><button class="btn btn-primary" id="buildDeck">產生我的 6 頁發表會 →</button></div>
 </section>
 
@@ -177,7 +177,7 @@ body{
 <div class="privacy-box">隱私提醒：所有回答只保存在目前這個瀏覽器，不會上傳給老師或其他網站。下載或列印後，若使用共用裝置，請按「清除並重新製作」移除本機紀錄。</div>
 </section>
 </section></div>
-<div class="footer">LIFE PITCH DECK · 不是要成為完美的產品，而是更了解自己，並為下一個版本做出選擇。</div>
+<div class="footer">LIFE PITCH DECK · 不用成為最完美的產品，而是更了解自己，設計自己的未來。</div>
 </main><div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 'use strict';
